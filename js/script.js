@@ -180,7 +180,7 @@ const cartaLineas = [
   "Que este nuevo año te traiga tantas cosas bonitas como las",
   "que tú le traes a mi vida.",
   "",
-  "Feliz cumpleaños, mi amor.",
+  "Feliz cumpleaños, mi Antooo.",
   "Te quiero hoy, mañana, y en cada versión de nosotros que viene.",
   "",
   "— Manuel",

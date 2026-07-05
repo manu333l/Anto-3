@@ -1,0 +1,526 @@
+/* ==========================================================
+   VARIABLES
+========================================================== */
+:root {
+  --paper: #faf9f6;
+  --ink: #1c1b1a;
+  --ink-soft: #746f68;
+  --line: #e7e3dc;
+  --accent: #c1495a;
+  --accent-soft: #f3dee1;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* ==========================================================
+   RESET
+========================================================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ==========================================================
+   NAV
+========================================================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 6vw;
+  z-index: 10;
+  mix-blend-mode: difference;
+  color: #fff;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+}
+.nav-links { display: flex; gap: 26px; }
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 6vw;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 22px;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 8vw, 5.2rem);
+  line-height: 1.08;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  margin-top: 22px;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  max-width: 420px;
+}
+.scroll-cue {
+  margin-top: 60px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 4px;
+}
+
+/* ==========================================================
+   SECTIONS (shared)
+========================================================== */
+.section {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 130px 6vw 60px;
+}
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 40px;
+}
+.section-intro {
+  color: var(--ink-soft);
+  margin-top: -20px;
+  margin-bottom: 34px;
+}
+
+/* ==========================================================
+   TIMELINE
+========================================================== */
+.timeline {
+  border-left: 1px solid var(--line);
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.timeline-item { position: relative; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -37.5px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.timeline-item.is-current::before {
+  background: var(--paper);
+  border: 2px solid var(--accent);
+}
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+.timeline-item h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  margin: 6px 0 4px;
+}
+.timeline-item p { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* ==========================================================
+   GALLERY
+========================================================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+.photo-placeholder {
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph-1 { background: linear-gradient(150deg, var(--accent-soft), #e9c3c9); }
+.ph-2 { background: linear-gradient(150deg, #f0e3e6, var(--accent-soft)); }
+.ph-3 { background: linear-gradient(150deg, #e9c3c9, #f6e9ea); }
+.ph-4 { background: linear-gradient(150deg, var(--accent-soft), #ecd3d8); }
+.photo-caption {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ==========================================================
+   QUIZ
+========================================================== */
+.quiz-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 32px;
+  background: #fff;
+}
+.q-question {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+}
+.q-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.q-opt {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: var(--paper);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.q-opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+.q-feedback { font-size: 0.85rem; min-height: 18px; }
+.q-feedback.ok { color: #5a8a5a; }
+.q-feedback.no { color: var(--accent); }
+.quiz-result p { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 4px; }
+
+/* ==========================================================
+   LETTER
+========================================================== */
+.section-carta { padding-bottom: 120px; }
+.letter {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 2;
+  color: var(--ink);
+  min-height: 320px;
+}
+.letter p { margin-bottom: 4px; min-height: 1.6em; }
+.letter .cursor {
+  display: inline-block;
+  width: 8px;
+  background: var(--accent);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+.btn-primary {
+  margin-top: 30px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-hidden { display: none; }
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+.footer {
+  text-align: center;
+  padding: 40px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+/* ==========================================================
+   OVERLAY
+========================================================== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 27, 26, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 100;
+  padding: 30px;
+}
+.overlay.show { display: flex; }
+.overlay-content h2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: #fff;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  line-height: 1.25;
+}
+.overlay-content p {
+  margin-top: 16px;
+  color: var(--accent-soft);
+  font-size: 1rem;
+}
+.overlay-close {
+  margin-top: 34px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.heart {
+  position: absolute;
+  bottom: -30px;
+  font-size: 20px;
+  animation: rise linear forwards;
+  opacity: 0.9;
+}
+@keyframes rise {
+  to { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
+}
+
+/* ==========================================================
+   INTRO GATE
+========================================================== */
+.intro-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.intro-gate.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.intro-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+.intro-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(2.4rem, 9vw, 4.6rem);
+  color: var(--accent);
+  margin-bottom: 34px;
+}
+
+/* ==========================================================
+   MUSIC TOGGLE
+========================================================== */
+.music-toggle {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  z-index: 90;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(28, 27, 26, 0.08);
+}
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+}
+.music-bars span {
+  width: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  height: 6px;
+  animation: none;
+}
+.music-toggle.is-playing .music-bars span {
+  animation: bar 0.9s ease-in-out infinite;
+}
+.music-bars span:nth-child(2) { animation-delay: 0.15s; }
+.music-bars span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes bar {
+  0%, 100% { height: 5px; }
+  50% { height: 16px; }
+}
+
+/* ==========================================================
+   AMBIENT HEARTS (fondo continuo)
+========================================================== */
+.ambient-hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.ambient-heart {
+  position: absolute;
+  bottom: -30px;
+  opacity: 0.35;
+  animation: driftUp linear forwards;
+}
+@keyframes driftUp {
+  to { transform: translateY(-115vh) translateX(20px) rotate(15deg); opacity: 0; }
+}
+
+/* ==========================================================
+   COUPONS (vales de amor)
+========================================================== */
+.coupons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+.coupon {
+  perspective: 1000px;
+  height: 150px;
+  cursor: pointer;
+}
+.coupon-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+.coupon.is-flipped .coupon-inner {
+  transform: rotateY(180deg);
+}
+.coupon-front,
+.coupon-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  border: 1px dashed var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.coupon-front {
+  background: #fff;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+.coupon-front span {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.coupon-back {
+  background: var(--accent-soft);
+  transform: rotateY(180deg);
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+/* ==========================================================
+   SECRET MESSAGE OVERLAY
+========================================================== */
+.secret-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 27, 26, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  z-index: 110;
+}
+.secret-overlay.show { display: flex; }
+.secret-content {
+  max-width: 480px;
+  text-align: center;
+}
+.secret-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.secret-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #fff;
+}
+.secret-content .overlay-close { margin-top: 30px; }
+.nav-logo { cursor: pointer; }
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+@media (max-width: 640px) {
+  .nav-links { gap: 16px; }
+  .section { padding-top: 100px; }
+  .music-toggle { bottom: 18px; right: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

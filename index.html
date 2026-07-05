@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Cumpleaños, Antonella 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ AMBIENTE: corazones flotando de fondo ============ -->
+  <div class="ambient-hearts" id="ambientHearts" aria-hidden="true"></div>
+
+  <!-- ============ AUDIO DE FONDO ============ -->
+  <!--
+    PERSONALIZA AQUÍ:
+    Guarda tu archivo de audio en music/cancion.mp3
+    (crea la carpeta "music" al lado de index.html).
+  -->
+  <audio id="bgMusic" src="music/cancion.mp3" loop preload="auto"></audio>
+  <button class="music-toggle" id="musicToggle" aria-label="reproducir música">
+    <span class="music-bars"><span></span><span></span><span></span></span>
+  </button>
+
+  <!-- ============ PANTALLA DE ENTRADA ============ -->
+  <div class="intro-gate" id="introGate">
+    <p class="intro-eyebrow">un regalo para</p>
+    <h1 class="intro-name">Antonella</h1>
+    <button class="btn-primary" id="openGiftBtn">Abrir mi regalo 🎁</button>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <span class="nav-logo" id="secretLogo">A.</span>
+    <div class="nav-links">
+      <a href="#historia">historia</a>
+      <a href="#galeria">fotos</a>
+      <a href="#vales">vales</a>
+      <a href="#reto">reto</a>
+      <a href="#carta">carta</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio">
+    <p class="eyebrow">05 de julio, 2026</p>
+    <h1 class="hero-title">Feliz cumpleaños,<br /><em>Antonella</em></h1>
+    <p class="hero-sub">Un regalo hecho a mano (bueno, a teclado) para ti.</p>
+    <a href="#historia" class="scroll-cue">seguir explorando ↓</a>
+  </section>
+
+  <!-- ============ HISTORIA / TIMELINE ============ -->
+  <section class="section" id="historia">
+    <p class="section-label">01 — nuestra historia</p>
+    <h2 class="section-title">Todo lo que hemos vivido</h2>
+
+    <!--
+      PERSONALIZA AQUÍ:
+      Cambia las fechas y los textos de cada .timeline-item
+      con sus recuerdos y fechas reales.
+    -->
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-date">Mediados de febrero, 2026</span>
+        <h3>El primer encuentro</h3>
+        <p>Sin imaginarlo, ese día comenzó una historia que poco a poco cambiaría nuestras vidas.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-date">A inicios de marzo, 2026</span>
+        <h3>La primera cita</h3>
+        <p>Entre nervios, risas y conversaciones que parecían no tener fin, descubrimos lo bien que nos sentíamos juntos.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-date">21 de mayo, 2026</span>
+        <h3>El primer beso</h3>
+        <p>Un momento que hizo que todo se sintiera diferente. Desde ese día, cada instante contigo tuvo un significado especial.</p>
+      </div>
+      <div class="timeline-item is-current">
+        <span class="timeline-date">hoy</span>
+        <h3>Seguimos sumando</h3>
+        <p>Cada día contigo suma una nueva página. Y tengo la sensación de que las mejores aún están por escribirse.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALERÍA ============ -->
+  <section class="section" id="galeria">
+    <p class="section-label">02 — recuerdos</p>
+    <h2 class="section-title">Momentos juntos</h2>
+
+    <!--
+      PERSONALIZA AQUÍ:
+      1. Crea/usa la carpeta "images/" y guarda tus fotos ahí
+         (ej: images/foto1.jpg, images/foto2.jpg...)
+      2. Reemplaza cada <div class="photo-placeholder">...</div>
+         por: <img src="images/foto1.jpg" alt="descripción" />
+      3. Cambia el texto de cada <p class="photo-caption">
+    -->
+    <div class="gallery">
+      <figure class="photo">
+        <img src="images/foto1.jpeg" alt="descripción" />
+        <p class="photo-caption">esa sonrisa que ilumina mi día</p>
+      </figure>
+      <figure class="photo">
+        <img src="images/foto2.jpeg" alt="descripción" />
+        <p class="photo-caption">nuestra primera fotoo</p>
+      </figure>
+      <figure class="photo">
+        <img src="images/foto3.jpeg" alt="descripción" />
+        <p class="photo-caption">una de nuestras primeras salidas</p>
+      </figure>
+      <figure class="photo">
+        <img src="images/foto4.jpeg" alt="descripción" />
+        <p class="photo-caption">De mis fotos favoritas</p>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ VALES DE AMOR ============ -->
+  <section class="section" id="vales">
+    <p class="section-label">03 — para canjear cuando quieras</p>
+    <h2 class="section-title">Vales de amor</h2>
+    <p class="section-intro">Haz clic en cada uno para voltearlo. Válidos sin fecha de vencimiento.</p>
+
+    <!--
+      PERSONALIZA AQUÍ:
+      Cambia el texto de cada .coupon-front (el título del vale)
+      y .coupon-back (la letra chica / condición, en broma).
+    -->
+    <div class="coupons">
+      <div class="coupon" tabindex="0">
+        <div class="coupon-inner">
+          <div class="coupon-front"><span>🎬</span>Una cita sorpresa</div>
+          <div class="coupon-back">Yo elijo el lugar, tú solo trae las ganas.</div>
+        </div>
+      </div>
+      <div class="coupon" tabindex="0">
+        <div class="coupon-inner">
+          <div class="coupon-front"><span>🤗</span>Un abrazo de oso</div>
+          <div class="coupon-back">Cuando lo necesites, sin preguntas, sin límite de tiempo.</div>
+        </div>
+      </div>
+      <div class="coupon" tabindex="0">
+        <div class="coupon-inner">
+          <div class="coupon-front"><span>🍳</span>Desayuno en cama</div>
+          <div class="coupon-back">Válido incluso si se me queman los huevos.</div>
+        </div>
+      </div>
+      <div class="coupon" tabindex="0">
+        <div class="coupon-inner">
+          <div class="coupon-front"><span>🎥</span>Noche de tu película favorita</div>
+          <div class="coupon-back">Sin quejarme ni una sola vez. Bueno, casi.</div>
+        </div>
+      </div>
+      <div class="coupon" tabindex="0">
+        <div class="coupon-inner">
+          <div class="coupon-front"><span>🤐</span>Un día sin quejas de mi parte</div>
+          <div class="coupon-back">Edición limitada. Puede que se agote rápido.</div>
+        </div>
+      </div>
+      <div class="coupon" tabindex="0">
+        <div class="coupon-inner">
+          <div class="coupon-front"><span>💋</span>Mil besos</div>
+          <div class="coupon-back">Sin límite de canjes por día.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RETO / QUIZ ============ -->
+  <section class="section" id="reto">
+    <p class="section-label">04 — un reto antes del regalo</p>
+    <h2 class="section-title">¿Me conoces bien?</h2>
+    <p class="section-intro">Responde para desbloquear tu carta.</p>
+
+    <div class="quiz-card">
+      <div id="quiz-area"></div>
+      <div id="quiz-result" class="quiz-result"></div>
+      <button id="unlockBtn" class="btn-primary btn-hidden">Ver mi carta →</button>
+    </div>
+  </section>
+
+  <!-- ============ CARTA FINAL ============ -->
+  <section class="section section-carta" id="carta">
+    <p class="section-label">05 — para ti</p>
+    <h2 class="section-title">Mi carta</h2>
+
+    <div class="letter" id="letter"></div>
+
+    <button id="surpriseBtn" class="btn-primary btn-hidden">🎉 Sorpresa final</button>
+  </section>
+
+  <footer class="footer">
+    <p>Hecho con 💛 para Antonella — Manuel</p>
+  </footer>
+
+  <!-- ============ OVERLAY FINAL ============ -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <h2>Feliz Cumpleaños,<br /><em>Antonella</em></h2>
+      <p>Te quiero hoy, mañana, y en cada versión de nosotros que viene.</p>
+      <button class="overlay-close" id="closeOverlay">cerrar</button>
+    </div>
+  </div>
+
+  <!-- ============ MENSAJE SECRETO (easter egg) ============ -->
+  <!--
+    PERSONALIZA AQUÍ: cambia el texto del mensaje secreto.
+    Se activa haciendo triple clic en la "A." del menú de arriba.
+  -->
+  <div class="secret-overlay" id="secretOverlay">
+    <div class="secret-content">
+      <p class="secret-label">// mensaje secreto encontrado</p>
+      <p class="secret-text">
+        Si llegaste hasta aquí es porque te encanta explorar cada rincón...
+        tal como exploras cada rincón de mi vida. Gracias por tu curiosidad,
+        por tus preguntas, por no conformarte con lo obvio. Eso es una de
+        las mil cosas que amo de ti. 💛
+      </p>
+      <button class="overlay-close" id="closeSecret">cerrar</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
